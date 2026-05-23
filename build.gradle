@@ -1,0 +1,39 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
+}
+
+apply from: rootProject.file('../gradle/shared-forge-mod.gradle')
+
+minecraft {
+    runs {
+        client {
+            args '--mixin.config=dream_eatery.mixins.json', '--mixin.config=reverie_core.mixins.json'
+        }
+
+        server {
+            args '--nogui', '--mixin.config=dream_eatery.mixins.json', '--mixin.config=reverie_core.mixins.json'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':reverie_core')
+}
+
+tasks.named('jar', Jar).configure {
+    finalizedBy 'reobfJar'
+}
+
+mixin {
+    add sourceSets.main, 'dream_eatery.refmap.json'
+}
+
+afterEvaluate {
+    def rcJarPath = ':reverie_core:jar'
+    tasks.matching { it.name in ['prepareRunClient', 'runClient', 'prepareRunServer', 'runServer'] }
+            .configureEach { dependsOn(rcJarPath) }
+}
