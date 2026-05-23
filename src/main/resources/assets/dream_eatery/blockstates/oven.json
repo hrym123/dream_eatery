@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "facing=east": { "model": "dream_eatery:block/oven" },
+    "facing=north": { "model": "dream_eatery:block/oven" },
+    "facing=south": { "model": "dream_eatery:block/oven" },
+    "facing=west": { "model": "dream_eatery:block/oven" }
+  }
+}
