@@ -1,0 +1,15 @@
+{
+  "type": "reverie_core:fantasy_workbench",
+  "category": "dream_eatery",
+  "core_count": 2,
+  "ingredients": [
+    {
+      "item": "reverie_core:fantasy_core"
+    }
+  ],
+  "result": {
+    "item": "dream_eatery:oven",
+    "count": 1
+  },
+  "dye": "empty"
+}
