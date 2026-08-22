@@ -6,6 +6,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.lanye.dream_eatery.DreamEatery;
+import org.lanye.dream_eatery.content.kitchen.blockentity.BarCounterBlockEntity;
+import org.lanye.dream_eatery.content.kitchen.blockentity.CornerBarBlockEntity;
 import org.lanye.dream_eatery.content.kitchen.blockentity.HalfHalfPotBlockEntity;
 import org.lanye.dream_eatery.content.kitchen.blockentity.JamPotBlockEntity;
 import org.lanye.dream_eatery.content.kitchen.blockentity.KitchenCounterBlockEntity;
@@ -33,6 +35,8 @@ public final class ModBlocks {
             KitchenAnimatedBlocks.KITCHEN_COUNTER_CABINET;
     public static final AnimatedBlockEntry<KitchenCounterBlockEntity> KITCHEN_COUNTER =
             KitchenAnimatedBlocks.KITCHEN_COUNTER;
+    public static final AnimatedBlockEntry<BarCounterBlockEntity> BAR_COUNTER = KitchenAnimatedBlocks.BAR_COUNTER;
+    public static final AnimatedBlockEntry<CornerBarBlockEntity> CORNER_BAR = KitchenAnimatedBlocks.CORNER_BAR;
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

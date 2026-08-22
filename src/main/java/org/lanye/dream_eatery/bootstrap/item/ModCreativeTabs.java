@@ -31,6 +31,8 @@ public final class ModCreativeTabs {
                         output.accept(ModBlocks.HALF_HALF_POT.item().get());
                         output.accept(ModBlocks.KITCHEN_COUNTER.item().get());
                         output.accept(ModBlocks.KITCHEN_COUNTER_CABINET.item().get());
+                        output.accept(ModBlocks.BAR_COUNTER.item().get());
+                        output.accept(ModBlocks.CORNER_BAR.item().get());
                     })
                     .build());
 

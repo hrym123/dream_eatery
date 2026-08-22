@@ -37,6 +37,12 @@ public final class ClientModEvents {
         AnimatedBlockClientRegistration.registerBlockEntityRenderer(
                 ModBlocks.KITCHEN_COUNTER,
                 GeolibAnimatedBlockRenderers.defaultGeoRendererProvider(DreamEatery.MODID, "kitchen_counter"));
+        AnimatedBlockClientRegistration.registerBlockEntityRenderer(
+                ModBlocks.BAR_COUNTER,
+                GeolibAnimatedBlockRenderers.defaultGeoRendererProvider(DreamEatery.MODID, "bar_counter"));
+        AnimatedBlockClientRegistration.registerBlockEntityRenderer(
+                ModBlocks.CORNER_BAR,
+                GeolibAnimatedBlockRenderers.defaultGeoRendererProvider(DreamEatery.MODID, "corner_bar"));
     }
 
     @SubscribeEvent

@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "dream_eatery:kitchen_counter",
-    "dream_eatery:kitchen_counter_cabinet"
+    "dream_eatery:kitchen_counter_cabinet",
+    "dream_eatery:bar_counter",
+    "dream_eatery:corner_bar"
   ]
 }
