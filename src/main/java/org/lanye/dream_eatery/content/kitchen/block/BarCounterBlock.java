@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.lanye.dream_eatery.content.kitchen.BarMaterialVariant;
 import org.lanye.dream_eatery.content.kitchen.blockentity.BarCounterBlockEntity;
 import org.lanye.reverie_core.geolib.GeolibFacingEntityBlockWithFactory;
 
@@ -15,8 +16,15 @@ public class BarCounterBlock extends GeolibFacingEntityBlockWithFactory<BarCount
 
     private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
 
-    public BarCounterBlock(BlockBehaviour.Properties properties) {
+    private final BarMaterialVariant variant;
+
+    public BarCounterBlock(BlockBehaviour.Properties properties, BarMaterialVariant variant) {
         super(properties, BarCounterBlockEntity::new);
+        this.variant = variant;
+    }
+
+    public BarMaterialVariant variant() {
+        return variant;
     }
 
     @Override

@@ -11,8 +11,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import org.lanye.dream_eatery.DreamEatery;
-import org.lanye.dream_eatery.content.kitchen.block.BarCounterBlock;
-import org.lanye.dream_eatery.content.kitchen.block.CornerBarBlock;
 import org.lanye.dream_eatery.content.kitchen.block.HalfHalfPotBlock;
 import org.lanye.dream_eatery.content.kitchen.block.JamPotBlock;
 import org.lanye.dream_eatery.content.kitchen.block.KitchenCounterBlock;
@@ -94,17 +92,7 @@ public final class KitchenAnimatedBlocks {
                                     "kitchen_counter",
                                     KitchenBlockProperties::woodCabinetNoOcclusion,
                                     KitchenCounterBlock::new,
-                                    KitchenCounterBlockEntity::new),
-                            defaultAnimatedSpec(
-                                    "bar_counter",
-                                    KitchenBlockProperties::woodCabinetNoOcclusion,
-                                    BarCounterBlock::new,
-                                    BarCounterBlockEntity::new),
-                            defaultAnimatedSpec(
-                                    "corner_bar",
-                                    KitchenBlockProperties::woodCabinetNoOcclusion,
-                                    CornerBarBlock::new,
-                                    CornerBarBlockEntity::new)));
+                                    KitchenCounterBlockEntity::new)));
 
     private static final int I_MIXING_BOWL = 0;
     private static final int I_JAM_POT = 1;
@@ -113,8 +101,6 @@ public final class KitchenAnimatedBlocks {
     private static final int I_HALF_HALF_POT = 4;
     private static final int I_KITCHEN_COUNTER_CABINET = 5;
     private static final int I_KITCHEN_COUNTER = 6;
-    private static final int I_BAR_COUNTER = 7;
-    private static final int I_CORNER_BAR = 8;
 
     @SuppressWarnings("unchecked")
     private static <BE extends BlockEntity> AnimatedBlockEntry<BE> animatedEntry(int index) {
@@ -130,6 +116,13 @@ public final class KitchenAnimatedBlocks {
             animatedEntry(I_KITCHEN_COUNTER_CABINET);
     public static final AnimatedBlockEntry<KitchenCounterBlockEntity> KITCHEN_COUNTER =
             animatedEntry(I_KITCHEN_COUNTER);
-    public static final AnimatedBlockEntry<BarCounterBlockEntity> BAR_COUNTER = animatedEntry(I_BAR_COUNTER);
-    public static final AnimatedBlockEntry<CornerBarBlockEntity> CORNER_BAR = animatedEntry(I_CORNER_BAR);
+
+    public static final AnimatedBlockEntry<BarCounterBlockEntity> BAR_COUNTER = BarCounterRegistration.entry();
+
+    public static final AnimatedBlockEntry<CornerBarBlockEntity> CORNER_BAR = CornerBarRegistration.entry();
+
+    static {
+        BarCounterRegistration.bootstrap();
+        CornerBarRegistration.bootstrap();
+    }
 }

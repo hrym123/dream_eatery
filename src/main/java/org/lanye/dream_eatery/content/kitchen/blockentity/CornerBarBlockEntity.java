@@ -6,7 +6,12 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.lanye.dream_eatery.bootstrap.block.ModBlocks;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import org.lanye.dream_eatery.bootstrap.block.CornerBarRegistration;
+import org.lanye.dream_eatery.content.kitchen.BarMaterialVariant;
+import org.lanye.dream_eatery.content.kitchen.BarMaterials;
+import org.lanye.dream_eatery.content.kitchen.block.CornerBarBlock;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
@@ -22,7 +27,15 @@ public class CornerBarBlockEntity extends BlockEntity implements GeoBlockEntity 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     public CornerBarBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlocks.CORNER_BAR.blockEntityType().get(), pos, state);
+        super(CornerBarRegistration.entry().blockEntityType().get(), pos, state);
+    }
+
+    public ResourceLocation getTextureLocation() {
+        Block block = getBlockState().getBlock();
+        if (block instanceof CornerBarBlock bar) {
+            return BarMaterials.sharedTexture(bar.variant());
+        }
+        return BarMaterials.sharedTexture(BarMaterialVariant.PURPLE_BAR_2);
     }
 
     @Override

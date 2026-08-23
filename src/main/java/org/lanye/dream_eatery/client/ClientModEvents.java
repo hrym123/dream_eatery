@@ -6,6 +6,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.lanye.dream_eatery.DreamEatery;
 import org.lanye.dream_eatery.bootstrap.block.ModBlocks;
+import org.lanye.dream_eatery.content.kitchen.blockentity.BarCounterBlockEntity;
+import org.lanye.dream_eatery.content.kitchen.blockentity.CornerBarBlockEntity;
 import org.lanye.reverie_core.geolib.client.AnimatedBlockClientRegistration;
 import org.lanye.reverie_core.geolib.client.GeolibAnimatedBlockRenderers;
 
@@ -39,10 +41,12 @@ public final class ClientModEvents {
                 GeolibAnimatedBlockRenderers.defaultGeoRendererProvider(DreamEatery.MODID, "kitchen_counter"));
         AnimatedBlockClientRegistration.registerBlockEntityRenderer(
                 ModBlocks.BAR_COUNTER,
-                GeolibAnimatedBlockRenderers.defaultGeoRendererProvider(DreamEatery.MODID, "bar_counter"));
+                GeolibAnimatedBlockRenderers.variableTextureGeoRendererProvider(
+                        DreamEatery.MODID, "bar_counter", BarCounterBlockEntity::getTextureLocation));
         AnimatedBlockClientRegistration.registerBlockEntityRenderer(
                 ModBlocks.CORNER_BAR,
-                GeolibAnimatedBlockRenderers.defaultGeoRendererProvider(DreamEatery.MODID, "corner_bar"));
+                GeolibAnimatedBlockRenderers.variableTextureGeoRendererProvider(
+                        DreamEatery.MODID, "corner_bar", CornerBarBlockEntity::getTextureLocation));
     }
 
     @SubscribeEvent

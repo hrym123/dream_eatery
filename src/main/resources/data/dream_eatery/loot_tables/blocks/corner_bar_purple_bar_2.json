@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:block",
+  "pools": [{
+    "rolls": 1,
+    "entries": [{ "type": "minecraft:item", "name": "dream_eatery:corner_bar_purple_bar_2" }],
+    "conditions": [{ "condition": "minecraft:survives_explosion" }]
+  }]
+}

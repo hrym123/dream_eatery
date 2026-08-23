@@ -7,6 +7,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.lanye.dream_eatery.bootstrap.block.CornerBarRegistration;
+import org.lanye.dream_eatery.content.kitchen.BarMaterialVariant;
 import org.lanye.dream_eatery.content.kitchen.blockentity.CornerBarBlockEntity;
 import org.lanye.reverie_core.geolib.GeolibFacingEntityBlockWithFactory;
 
@@ -15,8 +17,15 @@ public class CornerBarBlock extends GeolibFacingEntityBlockWithFactory<CornerBar
 
     private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
 
-    public CornerBarBlock(BlockBehaviour.Properties properties) {
+    private final BarMaterialVariant variant;
+
+    public CornerBarBlock(BlockBehaviour.Properties properties, BarMaterialVariant variant) {
         super(properties, CornerBarBlockEntity::new);
+        this.variant = variant;
+    }
+
+    public BarMaterialVariant variant() {
+        return variant;
     }
 
     @Override

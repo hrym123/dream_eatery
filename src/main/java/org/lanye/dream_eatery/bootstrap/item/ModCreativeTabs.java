@@ -9,6 +9,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.lanye.dream_eatery.DreamEatery;
+import org.lanye.dream_eatery.bootstrap.block.BarCounterRegistration;
+import org.lanye.dream_eatery.bootstrap.block.CornerBarRegistration;
 import org.lanye.dream_eatery.bootstrap.block.ModBlocks;
 
 public final class ModCreativeTabs {
@@ -31,8 +33,12 @@ public final class ModCreativeTabs {
                         output.accept(ModBlocks.HALF_HALF_POT.item().get());
                         output.accept(ModBlocks.KITCHEN_COUNTER.item().get());
                         output.accept(ModBlocks.KITCHEN_COUNTER_CABINET.item().get());
-                        output.accept(ModBlocks.BAR_COUNTER.item().get());
-                        output.accept(ModBlocks.CORNER_BAR.item().get());
+                        for (var item : BarCounterRegistration.items()) {
+                            output.accept(item.get());
+                        }
+                        for (var item : CornerBarRegistration.items()) {
+                            output.accept(item.get());
+                        }
                     })
                     .build());
 
