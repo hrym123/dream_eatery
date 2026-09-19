@@ -1,0 +1,14 @@
+{
+  "name": "block.dream_eatery.pestle_bowl",
+  "icon": "dream_eatery:pestle_bowl",
+  "category": "reverie_core:kitchen",
+  "read_by_default": true,
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "dream_eatery:pestle_bowl",
+      "text": "patchouli.reverie_core.handbook.entry.pestle_bowl"
+    }
+  ]
+}

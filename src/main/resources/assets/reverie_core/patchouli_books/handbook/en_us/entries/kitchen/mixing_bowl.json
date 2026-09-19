@@ -1,0 +1,14 @@
+{
+  "name": "block.dream_eatery.mixing_bowl",
+  "icon": "dream_eatery:mixing_bowl",
+  "category": "reverie_core:kitchen",
+  "read_by_default": true,
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "dream_eatery:mixing_bowl",
+      "text": "patchouli.reverie_core.handbook.entry.mixing_bowl"
+    }
+  ]
+}

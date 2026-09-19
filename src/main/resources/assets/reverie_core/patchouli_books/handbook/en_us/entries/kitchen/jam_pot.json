@@ -1,0 +1,14 @@
+{
+  "name": "block.dream_eatery.jam_pot",
+  "icon": "dream_eatery:jam_pot",
+  "category": "reverie_core:kitchen",
+  "read_by_default": true,
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "dream_eatery:jam_pot",
+      "text": "patchouli.reverie_core.handbook.entry.jam_pot"
+    }
+  ]
+}

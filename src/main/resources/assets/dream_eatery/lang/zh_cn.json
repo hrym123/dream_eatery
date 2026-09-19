@@ -42,5 +42,14 @@
   "block.dream_eatery.corner_bar_red_bar_3": "转角吧台（樱桃红·黑底）",
   "block.dream_eatery.corner_bar_blue_bar_3": "转角吧台（冰蓝色·黑底）",
   "block.dream_eatery.corner_bar_yellow_bar_3": "转角吧台（黄油黄·黑底）",
-  "block.dream_eatery.corner_bar_purple_bar_3": "转角吧台（丁香紫·黑底）"
+  "block.dream_eatery.corner_bar_purple_bar_3": "转角吧台（丁香紫·黑底）",
+  "patchouli.reverie_core.handbook.category.kitchen": "梦食坊",
+  "patchouli.reverie_core.handbook.category.kitchen.desc": "厨房与吧台。",
+  "patchouli.reverie_core.handbook.entry.mixing_bowl": "右击就能放下去。已经放好之后，再右击会搅一下。不能做饭，也不能往里放东西。朝向跟着你。不能用刷子换颜色。",
+  "patchouli.reverie_core.handbook.entry.pestle_bowl": "右击就能放下去。已经放好之后，再右击会捣一下。不能做饭，也不能往里放东西。朝向跟着你。不能用刷子换颜色。",
+  "patchouli.reverie_core.handbook.entry.jam_pot": "右击就能放下去。放成功的时候会动一下。之后再右击不会再动。不能做饭，也不能往里放东西。朝向跟着你。不能用刷子换颜色。",
+  "patchouli.reverie_core.handbook.entry.oven": "右击就能放下去。放好之后再右击没有别的事。不用添燃料，也没有烘烤界面。朝向跟着你。不能用刷子换颜色。",
+  "patchouli.reverie_core.handbook.entry.half_half_pot": "右击就能放下去。放好之后再右击没有别的事。不能做饭，也不能往里放东西。朝向跟着你。不能用刷子换颜色。",
+  "patchouli.reverie_core.handbook.entry.kitchen_counter": "右击就能放下去。放好之后再右击没有别的事。没有工作台界面，门也不能开，不能往里放东西。朝向跟着你。不能用刷子换颜色。",
+  "patchouli.reverie_core.handbook.entry.bar_piece": "右击就能放下去，占一格。放好之后再右击没有别的事。朝向跟着你。不能用刷子换颜色。"
 }

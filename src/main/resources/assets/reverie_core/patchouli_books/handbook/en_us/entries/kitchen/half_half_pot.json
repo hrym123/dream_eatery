@@ -1,0 +1,14 @@
+{
+  "name": "block.dream_eatery.half_half_pot",
+  "icon": "dream_eatery:half_half_pot",
+  "category": "reverie_core:kitchen",
+  "read_by_default": true,
+  "sortnum": 50,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "dream_eatery:half_half_pot",
+      "text": "patchouli.reverie_core.handbook.entry.half_half_pot"
+    }
+  ]
+}

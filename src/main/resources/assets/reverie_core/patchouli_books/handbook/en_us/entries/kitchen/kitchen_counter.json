@@ -1,0 +1,14 @@
+{
+  "name": "block.dream_eatery.kitchen_counter",
+  "icon": "dream_eatery:kitchen_counter",
+  "category": "reverie_core:kitchen",
+  "read_by_default": true,
+  "sortnum": 60,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "dream_eatery:kitchen_counter",
+      "text": "patchouli.reverie_core.handbook.entry.kitchen_counter"
+    }
+  ]
+}

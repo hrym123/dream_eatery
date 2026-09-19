@@ -42,5 +42,14 @@
   "block.dream_eatery.corner_bar_red_bar_3": "Corner Bar (Red / tier 3)",
   "block.dream_eatery.corner_bar_blue_bar_3": "Corner Bar (Blue / tier 3)",
   "block.dream_eatery.corner_bar_yellow_bar_3": "Corner Bar (Yellow / tier 3)",
-  "block.dream_eatery.corner_bar_purple_bar_3": "Corner Bar (Purple / tier 3)"
+  "block.dream_eatery.corner_bar_purple_bar_3": "Corner Bar (Purple / tier 3)",
+  "patchouli.reverie_core.handbook.category.kitchen": "Dream Eatery",
+  "patchouli.reverie_core.handbook.category.kitchen.desc": "Kitchen and bar pieces.",
+  "patchouli.reverie_core.handbook.entry.mixing_bowl": "Right-click to set it down. Right-click it again to stir once. You cannot cook with it or store anything in it. It faces the way you are looking. You cannot recolor it with a brush.",
+  "patchouli.reverie_core.handbook.entry.pestle_bowl": "Right-click to set it down. Right-click it again to grind once. You cannot cook with it or store anything in it. It faces the way you are looking. You cannot recolor it with a brush.",
+  "patchouli.reverie_core.handbook.entry.jam_pot": "Right-click to set it down. It plays a short motion when it is placed. Right-clicking it again does nothing. You cannot cook with it or store anything in it. It faces the way you are looking. You cannot recolor it with a brush.",
+  "patchouli.reverie_core.handbook.entry.oven": "Right-click to set it down. Right-clicking it again does nothing. It takes no fuel and has no baking screen. It faces the way you are looking. You cannot recolor it with a brush.",
+  "patchouli.reverie_core.handbook.entry.half_half_pot": "Right-click to set it down. Right-clicking it again does nothing. You cannot cook with it or store anything in it. It faces the way you are looking. You cannot recolor it with a brush.",
+  "patchouli.reverie_core.handbook.entry.kitchen_counter": "Right-click to set it down. Right-clicking it again does nothing. It has no crafting screen, the door does not open, and you cannot store anything in it. It faces the way you are looking. You cannot recolor it with a brush.",
+  "patchouli.reverie_core.handbook.entry.bar_piece": "Right-click to set it down. It takes one block. Right-clicking it again does nothing. It faces the way you are looking. You cannot recolor it with a brush."
 }
