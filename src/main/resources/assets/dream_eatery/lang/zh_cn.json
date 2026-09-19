@@ -8,11 +8,11 @@
   "block.dream_eatery.kitchen_counter": "料理台",
   "block.dream_eatery.kitchen_counter_cabinet": "橱柜",
   "patchouli.reverie_core.handbook.category.kitchen": "梦食坊",
-  "patchouli.reverie_core.handbook.category.kitchen.desc": "厨房与吧台。",
-  "patchouli.reverie_core.handbook.entry.mixing_bowl": "右击就能放下去。已经放好之后，再右击会搅一下。不能做饭，也不能往里放东西。朝向跟着你。不能用刷子换颜色。",
-  "patchouli.reverie_core.handbook.entry.pestle_bowl": "右击就能放下去。已经放好之后，再右击会捣一下。不能做饭，也不能往里放东西。朝向跟着你。不能用刷子换颜色。",
-  "patchouli.reverie_core.handbook.entry.jam_pot": "右击就能放下去。放成功的时候会动一下。之后再右击不会再动。不能做饭，也不能往里放东西。朝向跟着你。不能用刷子换颜色。",
-  "patchouli.reverie_core.handbook.entry.oven": "右击就能放下去。放好之后再右击没有别的事。不用添燃料，也没有烘烤界面。朝向跟着你。不能用刷子换颜色。",
-  "patchouli.reverie_core.handbook.entry.half_half_pot": "右击就能放下去。放好之后再右击没有别的事。不能做饭，也不能往里放东西。朝向跟着你。不能用刷子换颜色。",
-  "patchouli.reverie_core.handbook.entry.kitchen_counter": "右击就能放下去。放好之后再右击没有别的事。没有工作台界面，门也不能开，不能往里放东西。朝向跟着你。不能用刷子换颜色。"
+  "patchouli.reverie_core.handbook.category.kitchen.desc": "厨房。",
+  "patchouli.reverie_core.handbook.entry.mixing_bowl": "　　再右击会搅一下。",
+  "patchouli.reverie_core.handbook.entry.pestle_bowl": "　　再右击会捣一下。",
+  "patchouli.reverie_core.handbook.entry.jam_pot": "　　放下去的时候会动一下。",
+  "patchouli.reverie_core.handbook.entry.oven": "　　现在不能烤东西。",
+  "patchouli.reverie_core.handbook.entry.half_half_pot": "　　现在不能拿来做饭。",
+  "patchouli.reverie_core.handbook.entry.kitchen_counter": "　　现在不能当工作台用。"
 }
