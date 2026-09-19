@@ -18,8 +18,6 @@ import org.lanye.dream_eatery.content.kitchen.block.KitchenCounterCabinetBlock;
 import org.lanye.dream_eatery.content.kitchen.block.MixingBowlBlock;
 import org.lanye.dream_eatery.content.kitchen.block.OvenBlock;
 import org.lanye.dream_eatery.content.kitchen.block.PestleBowlBlock;
-import org.lanye.dream_eatery.content.kitchen.blockentity.BarCounterBlockEntity;
-import org.lanye.dream_eatery.content.kitchen.blockentity.CornerBarBlockEntity;
 import org.lanye.dream_eatery.content.kitchen.blockentity.HalfHalfPotBlockEntity;
 import org.lanye.dream_eatery.content.kitchen.blockentity.JamPotBlockEntity;
 import org.lanye.dream_eatery.content.kitchen.blockentity.KitchenCounterBlockEntity;
@@ -116,13 +114,4 @@ public final class KitchenAnimatedBlocks {
             animatedEntry(I_KITCHEN_COUNTER_CABINET);
     public static final AnimatedBlockEntry<KitchenCounterBlockEntity> KITCHEN_COUNTER =
             animatedEntry(I_KITCHEN_COUNTER);
-
-    public static final AnimatedBlockEntry<BarCounterBlockEntity> BAR_COUNTER = BarCounterRegistration.entry();
-
-    public static final AnimatedBlockEntry<CornerBarBlockEntity> CORNER_BAR = CornerBarRegistration.entry();
-
-    static {
-        BarCounterRegistration.bootstrap();
-        CornerBarRegistration.bootstrap();
-    }
 }
