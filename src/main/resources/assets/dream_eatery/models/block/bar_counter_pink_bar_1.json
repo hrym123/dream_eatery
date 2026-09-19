@@ -1,6 +1,0 @@
-{
-  "parent": "builtin/entity",
-  "textures": {
-    "particle": "dream_eatery:block/pink_bar_1"
-  }
-}
