@@ -26,6 +26,7 @@ dependencies {
         exclude group: 'mezz.jei'
         exclude group: 'vazkii.patchouli'
     }
+    annotationProcessor project(':reverie_core')
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 }

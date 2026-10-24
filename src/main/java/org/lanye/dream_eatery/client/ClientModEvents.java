@@ -1,20 +1,20 @@
 package org.lanye.dream_eatery.client;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import org.lanye.dream_eatery.DreamEatery;
 import org.lanye.dream_eatery.bootstrap.block.ModBlocks;
 import org.lanye.reverie_core.geolib.client.AnimatedBlockClientRegistration;
 import org.lanye.reverie_core.geolib.client.GeolibAnimatedBlockRenderers;
+import org.lanye.reverie_core.loader.ClientHooks;
+import org.lanye.reverie_core.loader.ModBus;
+import org.lanye.reverie_core.loader.OnlyIn;
+import org.lanye.reverie_core.loader.Dist;
 
-@Mod.EventBusSubscriber(modid = DreamEatery.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@OnlyIn(Dist.CLIENT)
 public final class ClientModEvents {
 
     private ClientModEvents() {}
 
-    static {
+    public static void register(ModBus bus) {
         AnimatedBlockClientRegistration.registerBlockEntityRenderer(
                 ModBlocks.MIXING_BOWL,
                 GeolibAnimatedBlockRenderers.defaultGeoRendererProvider(DreamEatery.MODID, "mixing_bowl"));
@@ -37,10 +37,6 @@ public final class ClientModEvents {
         AnimatedBlockClientRegistration.registerBlockEntityRenderer(
                 ModBlocks.KITCHEN_COUNTER,
                 GeolibAnimatedBlockRenderers.defaultGeoRendererProvider(DreamEatery.MODID, "kitchen_counter"));
-    }
-
-    @SubscribeEvent
-    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        AnimatedBlockClientRegistration.registerAllRenderers(event);
+        ClientHooks.onEntityRenderers(bus, sink -> {});
     }
 }
