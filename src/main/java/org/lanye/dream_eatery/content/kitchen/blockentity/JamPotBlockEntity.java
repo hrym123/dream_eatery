@@ -1,9 +1,13 @@
 package org.lanye.dream_eatery.content.kitchen.blockentity;
 
+import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.lanye.dream_eatery.bootstrap.block.ModBlocks;
@@ -16,13 +20,18 @@ import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-import javax.annotation.Nullable;
-
-/** 果酱锅：仅在放置时由 {@link org.lanye.dream_eatery.content.kitchen.block.JamPotBlock#setPlacedBy} 触发 {@code animation.jam_pot.enter}。 */
+/**
+ * 果酱锅：放置时由 {@link org.lanye.dream_eatery.content.kitchen.block.JamPotBlock#setPlacedBy}
+ * 写入 {@code PendingEnter} 同步标记；客户端在 {@link #handleUpdateTag} 见到标记后再播
+ * {@code animation.jam_pot.enter}（T019，避免当帧 {@code triggerAnim} 包早于客户端 BE）。
+ *
+ * <p>标记<strong>不</strong>写入存档，避免区块重载再播。
+ */
 public class JamPotBlockEntity extends BlockEntity implements GeoBlockEntity {
 
     public static final String MAIN_CONTROLLER = "main";
     private static final String TRIGGER_ENTER = "enter";
+    private static final String NBT_PENDING_ENTER = "PendingEnter";
 
     private static final String ENTER_ANIM_NAME = "animation.jam_pot.enter";
 
@@ -31,16 +40,43 @@ public class JamPotBlockEntity extends BlockEntity implements GeoBlockEntity {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
+    /** 仅服务端、仅用于组装下一次 update 包；发包后立刻清掉。 */
+    private boolean pendingEnter;
+
     public JamPotBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlocks.JAM_POT.blockEntityType().get(), pos, state);
     }
 
-    /** 服务端：放置时触发一次入场动画。 */
-    public void onServerPlayEnter() {
-        if (!(this.level instanceof net.minecraft.server.level.ServerLevel)) {
+    /**
+     * 服务端：放置后请求入场动画。只同步标记，不当帧 {@link #triggerAnim}（T019）。
+     */
+    public void onServerRequestEnterAnim() {
+        if (!(this.level instanceof ServerLevel)) {
             return;
         }
-        triggerAnim(MAIN_CONTROLLER, TRIGGER_ENTER);
+        this.pendingEnter = true;
+        BlockState state = getBlockState();
+        this.level.sendBlockUpdated(this.worldPosition, state, state, Block.UPDATE_CLIENTS);
+        this.pendingEnter = false;
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        CompoundTag tag = super.getUpdateTag();
+        if (this.pendingEnter) {
+            tag.putBoolean(NBT_PENDING_ENTER, true);
+        }
+        return tag;
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundTag tag) {
+        super.handleUpdateTag(tag);
+        if (this.level != null
+                && this.level.isClientSide
+                && tag.getBoolean(NBT_PENDING_ENTER)) {
+            triggerAnim(MAIN_CONTROLLER, TRIGGER_ENTER);
+        }
     }
 
     @Override

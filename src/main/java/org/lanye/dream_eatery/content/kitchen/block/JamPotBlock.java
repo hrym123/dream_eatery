@@ -45,7 +45,7 @@ public class JamPotBlock extends GeolibFacingEntityBlockWithFactory<JamPotBlockE
         if (!level.isClientSide) {
             BlockEntity be = level.getBlockEntity(pos);
             if (be instanceof JamPotBlockEntity pot) {
-                pot.onServerPlayEnter();
+                pot.onServerRequestEnterAnim();
             }
         }
     }
