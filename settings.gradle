@@ -21,6 +21,6 @@ plugins {
 }
 
 include 'reverie_core'
-project(':reverie_core').projectDir = file('../reverie_core')
+project(':reverie_core').projectDir = file('../reverie_core/1.20.1-Forge')
 
 rootProject.name = 'dream_eatery'
