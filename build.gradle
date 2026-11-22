@@ -21,7 +21,14 @@ minecraft {
 }
 
 dependencies {
-    implementation project(':reverie_core')
+    // 排除核心传递的已映射 JEI/Patchouli 坐标，再在本工程 fg.deobf（仓库见 shared-forge-mod BlameJared）
+    implementation(project(':reverie_core')) {
+        exclude group: 'mezz.jei'
+        exclude group: 'vazkii.patchouli'
+    }
+    annotationProcessor project(':reverie_core')
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 }
 
 tasks.named('jar', Jar).configure {

@@ -1,0 +1,36 @@
+package org.lanye.dream_eatery.content.kitchen.block;
+
+import com.mojang.serialization.MapCodec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import org.lanye.dream_eatery.content.kitchen.blockentity.OvenBlockEntity;
+import org.lanye.reverie_core.geolib.GeolibFacingEntityBlockWithFactory;
+
+/**
+ * 烤箱：GeckoLib 静态模型，水平四向；放置逻辑见 {@link org.lanye.reverie_core.geolib.GeolibFacingEntityBlock}。
+ * 碰撞与 {@link Shapes#block()} 一致（与 {@code oven.bbmodel} 全体元素包围盒为整格相符）。
+ */
+public class OvenBlock extends GeolibFacingEntityBlockWithFactory<OvenBlockEntity> {
+    public static final MapCodec<OvenBlock> CODEC = BlockBehaviour.simpleCodec(OvenBlock::new);
+
+    @Override
+    protected MapCodec<OvenBlock> codec() {
+        return CODEC;
+    }
+
+    private static final VoxelShape SHAPE = Shapes.block();
+
+    public OvenBlock(BlockBehaviour.Properties properties) {
+        super(properties, OvenBlockEntity::new);
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPE;
+    }
+}
