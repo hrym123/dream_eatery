@@ -49,11 +49,15 @@ public class JamPotBlock extends GeolibFacingEntityBlockWithFactory<JamPotBlockE
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
-        if (!level.isClientSide) {
-            BlockEntity be = level.getBlockEntity(pos);
-            if (be instanceof JamPotBlockEntity pot) {
-                pot.onServerRequestEnterAnim();
-            }
+        BlockEntity be = level.getBlockEntity(pos);
+        if (!(be instanceof JamPotBlockEntity pot)) {
+            return;
+        }
+        if (level.isClientSide) {
+            // 放置预测：此时客户端 BE 已存在，本地播入场；旁观者仍靠服务端 BE 数据包。
+            pot.onClientPlayEnterAnim();
+        } else {
+            pot.onServerRequestEnterAnim();
         }
     }
 }
